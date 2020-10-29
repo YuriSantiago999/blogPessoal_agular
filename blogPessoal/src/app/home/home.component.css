@@ -1,4 +1,20 @@
-p{
-    font-size: large;
-    font-style: italic;
+.texto{
+    
+   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.parallax{
+    background-image:url(https://i.imgur.com/0mTjgcG.png);
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position:center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+.bgc{
+    background-color: gray;
 }
