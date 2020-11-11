@@ -14,7 +14,7 @@
             <h3 class="text-center f1">Qual é a sensação de  ter que recomeçar um código do zero?</h3>
             <!--inicio do formulpario-->
             <div class="form-group">
-                <label class="f1" class="form-control" id="titulo" >Título</label>
+                <label class="f1" input type="text" class="form-control" id="titulo" >Título</label>
                 <input type="text" class="form-control" id="titulo"  placeholder="Digite o seu titulo da sua história triste">
                 
 
@@ -40,7 +40,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-6 form-group">
+                <div class="col-md-3 d-flex justify-content-end">
                     <button type="button" class="btn btn-outline-dark w-85">Postar</button>
                 </div>
 
@@ -85,8 +85,43 @@
                   <button class="btn btn-outline-dark w-100" type="button">Pesquisar</button>
                 </div>
               </div>
-            </div>
-        </div>
+              <!--inicio cards-->
+              <div class="row">
+                  <div class="col-md-12">
+                    <div class="card mt-5 mb-5"  *ngFor="let item of listaPostagens">
+                        <div class="card-header">
+                            <div class="row d-flex align-items-center">
+                                <div class="col-md-8">
+                                    <h5 class="card-title">{{item.titulo}}</h5>
+                                    <small>Tema: {{item.tema.descricao}}</small>
+                                </div>
+                                <div class="col-md-4 d-flex justify-content-end">
+                                    <button class="mr-3 btn btn-outline-info">
+                                        editar
+                                    </button>
+                                    <button class="mr-3 btn btn-outline-info">apagar</button>
+                                        
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text" aria-describedby="texto">{{item.texto}}</p>
+                            <small id="texto" class="form-text m-0 text-muted mb-3 text-monospace">
+
+                            Postado em {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date:'HH:mm'}}</small>
+                        </div>
+
+
+                    </div>
+
+
+                  </div>
+
+
+              </div>
+              
+
         <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-postaagens-tab">
 
             
@@ -114,6 +149,8 @@
 
 
     </div>
+
+        </div>
     
 
 
@@ -121,4 +158,8 @@
 
 
 
+
+
+    </div>
+</div>
 </div>
