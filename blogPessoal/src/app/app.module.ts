@@ -13,6 +13,8 @@ import { FeedComponent } from './feed/feed.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import {HttpClientModule} from '@angular/common/http';
+import {OrderModule} from 'ngx-order-pipe';
+import { PostTemaComponent } from './post-tema/post-tema.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,16 @@ import {HttpClientModule} from '@angular/common/http';
     PerfilLateralComponent,
     FeedComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    PostTemaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    OrderModule
     
     
   ],

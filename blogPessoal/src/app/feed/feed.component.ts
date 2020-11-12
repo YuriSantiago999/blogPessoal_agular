@@ -10,11 +10,16 @@ import { TemaService } from '../service/tema.service';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
+
+  key= 'data'
+  reverse= true
+
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
+  idTema: number
 
  
 
@@ -55,10 +60,40 @@ export class FeedComponent implements OnInit {
     })
 
 
-    }
+  }
+  findByIdTema(){
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema)=>{
+      this.tema =resp;
+
+
+    })
 
 
   }
+  postar(){
+
+    this.tema.id= this.idTema
+    this.postagem.tema=this.tema
+
+    if(this.postagem.titulo==null || this.postagem.texto==null || this.postagem.tema==null){
+
+      alert('Preencha tds os campos antes de postar')
+    }else {
+      this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+        this.postagem=resp
+        this.postagem= new Postagem()
+        alert('Postado com sucesso')
+        this.findAllPostagens()
+  
+  
+      })
+    }
+  }
+  
+
+
+
+}
    
   
 
