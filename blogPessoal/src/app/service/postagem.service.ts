@@ -16,6 +16,10 @@ export class PostagemService {
     return this.http.get('http://localhost:8080/postagens', this.token)
   }
 
+  getByIdPostagem(id: number) {
+    return this.http.get(`http://localhost:8080/postagens/${id}`, this.token)
+  }
+
   
 
   //getByIdPostagem(id: number) {
@@ -25,5 +29,12 @@ export class PostagemService {
  postPostagem(postagem: Postagem) {
     return this.http.post('http://localhost:8080/postagens', postagem, this.token)
  }
+
+ putPostagem(postagem: Postagem) {
+  return this.http.put('http://localhost:8080/postagens', postagem, this.token)
+}
+deletePostagem(id: number) {
+  return this.http.delete(`http://localhost:8080/postagens/${id}`, this.token)
+}
 
 }
