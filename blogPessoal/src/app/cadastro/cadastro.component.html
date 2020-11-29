@@ -1,6 +1,6 @@
-<div class="container bg">
+<div class=" bg">
     <div class="row mt-5 mb-5">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <h1 class="text-center f2">Cadastro</h1>
         </div>
 
@@ -22,7 +22,7 @@
 
     
 
-            <div>
+            <div class="container">
                 <div class="form-group f1 ">
                     <label for="exampleInputEmail1">Nome de usuário</label>
                     <input type="text" class="form-control" id="nome" aria-describedby="" placeholder="Nome de usuário"[(ngModel)]='user.nome' >
@@ -38,7 +38,7 @@
                     <input type="password" class="form-control" id="senha" placeholder="Senha" (input)='conferirSenha($event)' value='{{senha}}'  >
                 </div>
                 
-                <div class="form-group f1  text-dark">
+                <div class="form-group f1  text-light">
                     <label for="senhaConf">Confirmar Senha</label>
                     <input  type="password" class="form-control" id="senhaConf" placeholder="digite a senha novamente"[(ngModel)]='user.senha'  >
         
