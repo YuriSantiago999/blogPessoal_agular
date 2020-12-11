@@ -1,11 +1,18 @@
 .f1{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: inherit;
+   color: black;
+
+
     
 }
 .bg{
 
     background-image:url(https://i.imgur.com/YG6rPOp.jpg);
+}
+.f2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: bold;
+    color: darkgreen;
 }
 
 

@@ -5,6 +5,7 @@ import { TemaService } from './../service/tema.service';
 import { Tema } from './../model/Tema';
 import { Postagem } from './../model/Postagem';
 import { Component, OnInit } from '@angular/core';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-put-postagem',
@@ -25,7 +26,7 @@ export class PutPostagemComponent implements OnInit {
     private postagemService: PostagemService,
     private router: Router,
     private route: ActivatedRoute,
-    //private alert: AlertasService
+    private alert: AlertasService
   ) { }
 
   ngOnInit(){
@@ -51,11 +52,11 @@ export class PutPostagemComponent implements OnInit {
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       this.router.navigate(['/feed'])
-      alert("Postagem alterada com sucesso")
-      //this.alert.showAlertSuccess('Postagem alterada com sucesso')
-    }, vish => {
-      if (vish.status == '500'){
-        alert('Preencha todos os campos corretamente antes de enviar!')
+      this.alert.showAlertDark("Postagem alterada com sucesso")
+      
+    }, erro => {
+      if (erro.status == '500'){
+        this.alert.showAlertDanger('Preencha todos os campos corretamente antes de enviar!')
      }
     })
   }

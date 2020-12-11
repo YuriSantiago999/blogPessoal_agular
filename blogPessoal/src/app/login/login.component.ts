@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLogin } from '../model/UserLogin';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private alert: AlertasService
 
   ) { }
  
@@ -29,6 +31,11 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/feed'])
 
 
+    },err=> {
+
+      if(err.status==500){
+        this.alert.showAlertDanger('Email ou Senha incorretos')
+      }
     })
 
 
