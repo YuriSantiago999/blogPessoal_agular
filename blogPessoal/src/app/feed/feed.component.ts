@@ -4,6 +4,8 @@ import { Tema } from '../model/Tema';
 import { AlertasService } from '../service/alertas.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-feed',
@@ -31,13 +33,20 @@ export class FeedComponent implements OnInit {
   constructor(
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private alerta: AlertasService
+    private router: Router,
+    private alerta: AlertasService,
+    
       
     
     
   ) { }
 
   ngOnInit()  {
+    let token = environment.token
+    if(token==''){
+      this.router.navigate(['/login'])
+      this.alerta.showAlertDanger('Faça o login para poder entrar')
+    }
     window.scroll(0, 0)
     this.findAllPostagens()
     this.findAllTemas()
@@ -99,6 +108,7 @@ export class FeedComponent implements OnInit {
     this.postagem.tema=this.tema
 
     if(this.postagem.titulo==null || this.postagem.texto==null || this.postagem.tema==null){
+      
 
       this.alerta.showAlertDanger('Preencha tds os campos antes de postar')
     }else {
